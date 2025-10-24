@@ -1,6 +1,5 @@
 version: '3'
 
-
 services:
   db:
     image: postgres:14.3
@@ -13,3 +12,15 @@ services:
     container_name: valhpacdb
     volumes:
       - ./postgres:/var/lib/postgresql/data
+  pgAdmin:
+    depends_on:
+      - db
+    image: dpage/pgadmin4:8.6
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_PASSWORD=123456
+      - PGADMIN_DEFAULT_EMAIL=jesusosuna@gmail.com
+    restart: always
