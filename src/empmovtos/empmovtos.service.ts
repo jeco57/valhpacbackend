@@ -76,7 +76,7 @@ export class EmpmovtosService {
     const queryRunner = this.dataStored.createQueryRunner();
     await queryRunner.connect();
     try {
-      const result = await queryRunner.query("Select * FRom uf_con_empmovtos('','')");
+      const result = await queryRunner.query("Select * From uf_con_empmovtos('','')");
       //await queryRunner.release();
       //console.log(result);
       return {

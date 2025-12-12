@@ -6,6 +6,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
+import { PaginationDto } from 'src/common/dtos/pagination.dto';
 
 
 @Injectable()
@@ -33,7 +34,7 @@ export class ProductsService {
     }
   }
 
-  findAll () {
+  findAll (paginationDto: PaginationDto) {
     return this.productRepository.find();
   }
 
