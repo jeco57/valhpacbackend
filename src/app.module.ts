@@ -31,7 +31,7 @@ import { PrinterModule } from './printer/printer.module';
         password: process.env.DB_PASSWORD,
         autoLoadEntities: true,
         synchronize: true,
-        // ssl: true,
+        ssl: true,
       }
     ), ProductsModule, EmpmovtosModule,  EmpcatentproduccionModule, EmpcattiposModule, EmpcatproductosModule, EmpcattamanosModule, EmpcatclasificacionesModule, EmpcatetiquetasModule, EmpcatmovtosModule, AuthModule, FilesModule, BasicReportsModule, PrinterModule, 
   ],
