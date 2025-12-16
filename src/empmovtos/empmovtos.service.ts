@@ -30,19 +30,23 @@ export class EmpmovtosService {
     
 
     try {
-      createEmpMovtosDto.forEach(createEmpmovtoDto  => {
+      for (const createEmpmovtoDto of createEmpMovtosDto) {
+      //createEmpMovtosDto.forEach(createEmpmovtoDto  => {
         console.log(createEmpmovtoDto);
         
         empMovto = this.empMovtoRepository.create(createEmpmovtoDto);
 
         console.log(empMovto);
+        console.log("Hola empMovto");
 
-        queryRunner.manager.save(empMovto);
-      });
+        await queryRunner.manager.save(empMovto);
+       }
             
-      await queryRunner.commitTransaction();
-      await queryRunner.release();
+      //console.log("Antes commit");
+      const result = await queryRunner.commitTransaction();
 
+      //console.log(result);
+      await queryRunner.release();
       
       return {
         ok: true,
